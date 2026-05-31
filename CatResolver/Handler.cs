@@ -1,12 +1,12 @@
 namespace CatResolver;
 
-public interface IHandler : IResolver
+public interface IHandler : IResolvable
 {
     public void PrintCategory();
     public void Run();
 }
 
-public abstract class BaseHandler
+public abstract class BaseHandler : IHandler
 {
     protected abstract string GetCategory();
     
@@ -21,15 +21,16 @@ public abstract class BaseHandler
     }
 }
 
-public class AHandler : BaseHandler, IHandler
+public class Handler : BaseHandler
 {
     public static string Category => "A";
     protected override string GetCategory() => Category;
 }
 
-public class BHandler : BaseHandler, IHandler
+public class BHandler : BaseHandler
 {
     public static string Category => "B";
+    
     protected override string GetCategory() => Category;
    
     public new void Run()
