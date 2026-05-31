@@ -21,7 +21,7 @@ public abstract class BaseHandler : IHandler
     }
 }
 
-public class Handler : BaseHandler
+public class AHandler : BaseHandler
 {
     public static string Category => "A";
     protected override string GetCategory() => Category;
